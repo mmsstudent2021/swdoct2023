@@ -1,0 +1,128 @@
+<input type="text" form="reg" name="ha_ha">
+
+<form action="https://mms-it.com" id="reg" method="get">
+  <fieldset>
+    <legend>Employer Register</legend>
+
+    <table>
+      <tr>
+        <td><label for="yourName">Your Name</label></td>
+        <td>
+          <input
+            type="text"
+            id="yourName"
+            name="your_name"
+            minlength="4"
+            autofocus
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><label for="salary">Salary</label></td>
+        <td>
+          <input
+            type="number"
+            id="salary"
+            min="500"
+            max="1500"
+            name="salary"
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><label for="yourEmail">Your Email</label></td>
+        <td>
+          <input type="email" name="your_email" id="yourEmail" />
+        </td>
+      </tr>
+      <tr>
+        <td><label for="password">Password</label></td>
+        <td>
+          <input type="password" name="password" id="password" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="dob">Date of Birth</label>
+        </td>
+        <td>
+          <input type="date" name="dob" id="dob" max="2005-01-01" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Gender</label>
+        </td>
+        <td>
+          <div class="">
+            <input type="radio" name="gender" id="male" value="male" />
+            <label for="male">Male</label>
+          </div>
+
+          <div class="">
+            <input type="radio" name="gender" id="female" value="female" />
+            <label for="female">Female</label>
+          </div>
+          <div class="">
+            <input type="radio" name="gender" id="gay" value="gay" />
+            <label for="gay">Gay</label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <label for="nationality">Nationality</label>
+        </td>
+        <td>
+            <select name="nationality" id="nationality">
+                <option value="mm">Myanmar</option>
+                <option value="ch">China</option>
+                <option value="kr">Korean</option>
+                <option value="jp">Japanese</option>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <label for="">Your Skill</label>
+        </td>
+        <td>
+            <div class="">
+                <input type="checkbox" name="skill" value="html" id="html">
+                <label for="html">html</label>
+            </div>
+            <div class="">
+                <input type="checkbox" name="skill" value="css" id="css">
+                <label for="css">css</label>
+            </div>
+            <div class="">
+                <input type="checkbox" name="skill" value="js" id="js">
+                <label for="js">js</label>
+            </div>
+            <div class="">
+                <input type="checkbox" name="skill" value="php" id="php">
+                <label for="php">php</label>
+            </div>
+            <div class="">
+                <input type="checkbox" name="skill" value="sql" id="sql">
+                <label for="sql">sql</label>
+            </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <label for="address">Your Address</label>
+        </td>
+        <td>
+            <textarea name="address" id="address" cols="35" rows="5"></textarea>
+        </td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <button>Register</button>
+  </fieldset>
+</form>
