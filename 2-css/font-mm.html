@@ -6,14 +6,27 @@
     <title>Document</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&family=Padauk:wght@400;700&family=Quicksand:wght@400;700&display=swap");
+
+      @font-face {
+        font-family: "myanmar black";
+        src: url("./fonts/MyanmarBlack.ttf");
+      }
+
+      @font-face {
+        font-family: "myanmar sagar";
+        src: url("./fonts/MyanmarSagar.ttf");
+      }
+
       h1 {
-        font-family:'Montserrat', "Noto Sans Myanmar", sans-serif;
+        /* font-family: "Montserrat", "myanmar black", sans-serif; */
+        font: 50px "Montserrat", "myanmar black", sans-serif;
       }
 
       /* global selector '*' */
-      *{
-        font-family: "Quicksand", "Padauk", sans-serif;
-        line-height: 30px;
+      * {
+        font: 16px/30px "Quicksand", "myanmar sagar", sans-serif;
+        /* font-family: "Quicksand", "myanmar sagar", sans-serif; */
+        /* line-height: 30px; */
       }
     </style>
   </head>
