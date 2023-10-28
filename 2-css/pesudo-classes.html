@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background:rgb(0, 0, 0);
+            color: white;
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            transition-duration: 500ms;
+
+        }
+
+        .box:hover{
+            background:rgb(0, 142, 251);
+            color: rgb(211, 236, 255);
+            width: 500px;
+            box-shadow: 10px 10px 30px gray;
+            
+        }
+
+        /* .box:active{
+            background-color:rgb(255, 229, 210);
+            color:chocolate;
+        } */
+        .box:focus{
+            background-color:rgb(255, 229, 210);
+            color:chocolate;
+        }
+
+        .btn{
+
+        }
+        .btn:focus{
+            background-color: black;
+            color: white;
+        }
+        .text-input:focus{
+            background-color: gray;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="box">
+        Min Ga Lar Par
+    </h1>
+
+    <input type="text" class="text-input">
+    <button class="btn">Click Me</button>
+</body>
+</html>
