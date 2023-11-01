@@ -1,0 +1,12 @@
+.rounded {
+  border-radius: 10px;
+}
+
+.rounded-pill {
+  border-radius: 100px;
+}
+
+
+.mb-5 {
+    margin-bottom: 5px;
+}
