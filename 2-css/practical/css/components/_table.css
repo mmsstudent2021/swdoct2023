@@ -1,0 +1,59 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+
+}
+
+.table td,
+.table th {
+  border-bottom: 1px solid black;
+  padding: 10px 15px;
+}
+
+.table-border-blue td,
+.table-border-blue th {
+  border: 1px solid var(--blue);
+}
+
+.table-border-pink td,
+.table-border-pink th {
+  border: 1px solid var(--pink);
+}
+
+.table .thead-blue{
+    background: var(--blue);
+    color: white;
+}
+
+.table .thead-pink{
+    background: var(--pink);
+    color: white;
+}
+
+
+.table-hover tbody tr:hover{
+    background: var(--gray-hover);
+}
+
+.table-border-blue.table-hover tbody tr:hover{
+    background: rgb(233, 250, 255);
+}
+
+.table-border-pink.table-hover tbody tr:hover{
+    background: rgb(255, 247, 252);
+}
+
+.table-strip tbody tr:nth-child(odd){
+    background-color: rgb(228, 228, 228);
+}
+
+.table-border-blue.table-strip tbody tr:nth-child(odd){
+    background-color: rgb(233, 250, 255);
+}
+
+.table-border-pink.table-strip tbody tr:nth-child(odd){
+    background-color: rgb(255, 247, 252);
+}
