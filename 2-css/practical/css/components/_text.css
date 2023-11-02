@@ -2,4 +2,6 @@
   text-decoration: underline;
   margin-bottom: 20px;
   font-size: 35px;
+  font-family: var(--heading-font);
+
 }

@@ -2,4 +2,6 @@
     --blue : #00d1ff;
     --pink : #ffafcc;
     --gray-hover : rgb(229, 229, 229);
+    --base-font : 'Quicksand', sans-serif;
+    --heading-font : 'Roboto Slab', serif;
 }

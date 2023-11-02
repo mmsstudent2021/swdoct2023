@@ -25,3 +25,15 @@
 .text-right {
   text-align: right;
 }
+
+.w-full{
+  width: 100% !important;
+}
+
+.p-0{
+  padding: 0px !important;
+}
+
+.p-15{
+  padding: 15px;
+}
