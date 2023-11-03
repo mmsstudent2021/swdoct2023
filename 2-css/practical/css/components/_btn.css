@@ -12,6 +12,11 @@
   border: 1px solid var(--blue);
 }
 
+.btn-dark {
+  background-color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
 .btn-pink {
   background-color: var(--pink);
   border: 1px solid var(--pink);

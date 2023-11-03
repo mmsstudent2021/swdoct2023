@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/app.css" />
+    <style>
+      body {
+        background-size: contain;
+        background-image: url("https://img.freepik.com/free-vector/education-pattern-background-doodle-style_53876-115365.jpg?w=1480&t=st=1698999018~exp=1698999618~hmac=19ed7252bbd1ab63716563f3b98654224111fe8f4bb81b5b4dcbd1a5200b233a");
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="form">
+        <h1 class="heading">Student Register</h1>
+        <form action="" method="get">
+          <div class="input-group">
+            <label class="input-label" for="yourName">Your Name</label>
+            <input
+              type="text"
+              name="your_name"
+              id="yourName"
+              class="input"
+              placeholder="eg. kyaw kyaw"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="nationality">Nationality</label>
+            <select class="select" name="nationality" id="nationality">
+              <option value="mm">Myanmar</option>
+              <option value="ch">China</option>
+              <option value="kr">Korean</option>
+              <option value="jp">Japanese</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label">Your Current Skill</label>
+            <div class="">
+              <input
+                type="checkbox"
+                class="checkbox"
+                name="skill"
+                value="html"
+                id="html"
+              />
+              <label class="checkbox-label" for="html">HTML</label>
+            </div>
+
+            <div class="">
+              <input
+                type="checkbox"
+                class="checkbox"
+                name="skill"
+                value="css"
+                id="css"
+              />
+              <label class="checkbox-label" for="css">CSS</label>
+            </div>
+
+            <div class="">
+              <input
+                type="checkbox"
+                class="checkbox"
+                name="skill"
+                value="js"
+                id="js"
+              />
+              <label class="checkbox-label" for="js">JavaScript</label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="yourEmail">Your Email</label>
+            <input
+              class="input"
+              type="email"
+              name="your_email"
+              id="yourEmail"
+              placeholder="eg. kyaw@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="input-group mb-50">
+            <label class="input-label" for="password">Password</label>
+            <input
+              class="input"
+              type="password"
+              name="password"
+              id="password"
+              required
+            />
+          </div>
+
+          <button class="btn btn-dark btn-right">Register</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
