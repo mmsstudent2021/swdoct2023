@@ -7,7 +7,8 @@ module.exports = {
     "table.html",
     "theme.html",
     "index.html",
-    "layout.html"
+    "layout.html",
+    "grid.html"
   ],
   theme: {
     extend: {},

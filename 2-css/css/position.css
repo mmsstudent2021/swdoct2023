@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 300vh;
+}
+
+/* 
+
+static
+
+
+relative
+absolute
+fixed
+sticky
+
+top,left,bottom,right, z-index
+
+position over position
+
+*/
+
+
+.box{
+
+    width: 600px;
+    height: 300px;
+    border: 2px solid black;
+    margin: 100px;
+    position: relative;
+}
+
+.img{
+    height: 150px;
+}
+
+.img:nth-child(1){
+
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: 5;
+}
+
+.img:nth-child(2){
+    /* position: relative;
+    top: 30px;
+    right: 30px; */
+    /* position: absolute;
+    bottom: 30px;
+    right: 30px; */
+    /* position: fixed;
+    bottom: 30px;
+    right: 30px; */
+    position: absolute;
+    z-index: 12;
+    top: 50px;
+
+
+}
+
+.img:nth-child(3){
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    z-index: 10;
+}
+
+.bar{
+    height: 50px;
+    background: black;
+    color: white;
+    position: sticky;
+    width: 100%;
+    top: 10px;
+}
