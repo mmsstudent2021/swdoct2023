@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/pe.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        counter-reset: c;
+        height: 3000px;
+      }
+      h1 {
+        color: rgb(73, 203, 255);
+      }
+
+      h1::before {
+        counter-increment: c;
+        content: counter(c) ". ";
+        color: indigo;
+      }
+
+      /* h1::before{
+            content: "AAA";
+            color: red;
+        }
+
+        h1::after{
+            content: "ZZZ";
+            color: gray;
+        } */
+
+      .price-tag {
+        display: flex;
+        position: relative;
+      }
+
+      /* .price-tag .main {
+        height: 50px;
+        background-color: #377dff;
+        color: #fff;
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        width: 100px;
+        
+      }
+
+      .price-tag .end {
+        border: 25px solid transparent;
+        border-left-color: #377dff;
+        display: inline-block;
+      }
+
+      .price-tag .circle {
+        width: 14px;
+        height: 14px;
+        background: #000;
+        border-radius: 10px;
+        position: absolute;
+        left: 90px;
+        top: 18px;
+      } */
+
+      .price-tag {
+        background-color: #377dff;
+        color: #fff;
+        height: 50px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-right: 30px;
+      }
+
+      .price-tag::before {
+        content: " ";
+        border: 25px solid transparent;
+        border-left-color: #377dff;
+        border-right-width: 0px;
+        position: absolute;
+        left: 150px;
+      }
+
+      .price-tag::after {
+        content: " ";
+        width: 14px;
+        height: 14px;
+        background: #fff;
+        border-radius: 12px;
+        position: absolute;
+        top: 18px;
+        left: 143px;
+      }
+
+      .box {
+        display: flex;
+      }
+
+      .progress-bar {
+        width: 350px;
+        background-color: rgb(213, 239, 255);
+        height: 15px;
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 5px;
+      }
+
+      .progress-bar .progress {
+        height: 100%;
+        background-color: #377dff;
+        border-radius: 15px;
+
+        /* position: absolute; */
+      }
+
+      .progress-circle {
+        width: 70px;
+        height: 70px;
+        background-image: conic-gradient(
+          #377dff 0,
+          #377dff 270deg,
+          rgb(237, 237, 237) 0deg,
+          rgb(237, 237, 237) 360deg
+        );
+        border-radius: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .progress-circle .progress {
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+
+      .bg-gradient {
+        width: 100px;
+        height: 100px;
+        /* background-image: repeating-linear-gradient( 45deg,red 5%,yellow 10%); */
+
+        /* background-image: radial-gradient(red,yellow); */
+
+        background-image: conic-gradient(
+          red 0deg,
+          red 0deg,
+          yellow 0deg,
+          yellow 360deg
+        );
+      }
+
+      .ribbon {
+        width: 180px;
+        display: flex;
+        position: relative;
+        /* border: 1px solid black; */
+      }
+      .ribbon .start {
+        border: 20px solid #88b1fd;
+        border-left-color: transparent;
+        display: inline-block;
+        position: absolute;
+        top: 9px;
+        left: 0;
+      }
+
+      .ribbon .content {
+        background-color: #377dff;
+        width: 120px;
+        text-align: center;
+        color: #fff;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 30px;
+        z-index: 10;
+      }
+
+      .ribbon .content::before {
+        border: 5px solid #002d81;
+       
+
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        content: " ";
+        position: absolute;
+        left: 0;
+        bottom: -9px;
+      }
+      .ribbon .content::after {
+        border: 5px solid #002d81;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        content: " ";
+        position: absolute;
+        right: 0;
+        bottom: -9px;
+      }
+
+      .ribbon .end {
+        border: 20px solid #88b1fd;
+        display: inline-block;
+        border-right-color: transparent;
+        position: absolute;
+        top: 9px;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>san</h1>
+    <h1>kyi</h1>
+    <h1>tar</h1>
+    <h1>par</h1>
+    <h1>byar</h1>
+
+    <hr />
+
+    <!-- <div class="price-tag">
+      <div class="main">
+        $ 50.99
+      </div>
+      <div class="end"></div>
+      <div class="circle"></div>
+    </div> -->
+
+    <div class="box">
+      <h2 class="price-tag">$ 50.99</h2>
+
+      <h2 class="price-tag">$ 50.99</h2>
+
+      <h2 class="price-tag">$ 50.99</h2>
+    </div>
+
+    <div class="progress-bar">
+      <div style="width: 60%" class="progress"></div>
+    </div>
+    <br />
+    <br />
+
+    <div class="progress-circle">
+      <div class="progress">75%</div>
+    </div>
+
+    <br />
+    <br />
+
+    <!-- <div class="bg-gradient"></div> -->
+
+    <div class="ribbon">
+      <div class="start"></div>
+      <div class="content">1st Prize</div>
+      <div class="end"></div>
+    </div>
+  </body>
+</html>
