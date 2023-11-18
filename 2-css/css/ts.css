@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.box{
+
+    border: 2px solid black;
+    height: 500px;
+    margin: 100px;
+    perspective: 1000px;
+}
+
+.obj{
+    height: 200px;
+    transition-duration: 300ms;
+}
+
+
+/* .obj:active{
+    transform: scale(0.8);
+} */
+
+.obj:nth-child(2){
+    /* border: 2px solid red; */
+    /* transform: translateX(50px) translateY(-50px); */
+    /* transform: translate(50px,100px); */
+    /* transform: rotate(-50deg); */
+    /* transform-origin: center; */
+    transform-origin:  left;
+    /* transform: rotateX(50deg) rotateY(30deg); */
+    
+    transform: rotateY(50deg);
+    /* transform: skewX(10deg); */
+
+    /* translate: 30px 50px; */
+    /* rotate: x 50deg ; */
+    /* scale: 0.8; */
+    
+}
+
+/* .img1{
+    height: 150px;
+    transition-duration: 300ms;
+}
+
+.img1:hover{
+    transform: rotate(10deg) scale(0.85);
+} */
+
+.card{
+
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+
+}
+
+.card:hover .card-img{
+    /* transform: rotate(10deg) scale(1.3); */
+    transform: translateX(70%) scale(0.8);
+}
+
+.card-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 300ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.dropdown{
+    /* border: 1px solid black; */
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-btn{
+    /* border: 1px solid black; */
+    padding: 10px 20px;
+    background-color:black;
+    color: white;
+    border: none;
+}
+
+.dropdown-btn:focus + .dropdown-content{
+    /* display: flex; */
+    opacity: 1;
+    /* transform: translateY(0px) scale(1); */
+    transform: translateY(0px);
+    pointer-events: all;
+
+
+}
+
+
+
+.dropdown-content{
+    border: 1px solid black;
+    width: 150px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* display: none; */
+    opacity: 0;
+    transform: translateY(20px);
+    /* transform: translateX(-50px) scale(0.9); */
+    transition-duration: 300ms;
+    position: absolute;
+    background-color: white;
+    pointer-events: none;
+
+}
+
+.dropdown-link{
+    border: 1px solid black;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    color: black;
+}

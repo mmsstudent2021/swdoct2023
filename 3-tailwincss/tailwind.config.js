@@ -9,7 +9,8 @@ module.exports = {
     "index.html",
     "layout.html",
     "grid.html",
-    "position.html"
+    "position.html",
+    "ele.html",
   ],
   theme: {
     extend: {},
