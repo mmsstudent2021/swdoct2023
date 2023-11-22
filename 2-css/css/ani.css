@@ -1,72 +1,196 @@
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
-body{
-    padding: 40px;
+body {
+  padding: 40px;
 }
 
-.heading{
-    margin-bottom: 20px;
-    font-family: sans-serif;
-    font-size: 34px;
-
+.heading {
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  font-size: 34px;
 }
 
-.box{
-    border: 1px solid black;
-    padding: 20px;
-    margin-bottom: 20px;
+.box {
+  border: 1px solid black;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(201, 240, 255);
 }
 
-.box-title{
-    font-family: sans-serif;
-    font-size: 24px;
-    margin-bottom: 10px;
+.box-title {
+  font-family: sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.box-para{
-    color: rgb(103, 103, 103);
-    font-family: monospace;
-    line-height: 20px;
+.box-para {
+  color: rgb(103, 103, 103);
+  font-family: monospace;
+  line-height: 20px;
 }
 
-.box:nth-child(1){
-    animation-name: slideInLeft;
-    animation-duration: 5000ms;
-    animation-delay: 3000ms;
+.box:nth-child(1) {
+  /* animation-name: slideInLeft;
+    animation-duration: 500ms;
+    animation-delay: 0ms;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-    animation-fill-mode: both;
-    /* animation-direction: alternate; */
+    animation-fill-mode: both; */
+  /* animation-direction: alternate; */
 }
 
-.box:nth-child(2){
-    animation-name: slideInLeft;
+.box:nth-child(2) {
+  /* animation-name: slideInLeft;
     animation-duration: 500ms;
     animation-delay: 300ms;
-    animation-fill-mode: backwards;
-
+    animation-fill-mode: backwards; */
 }
-.box:nth-child(3){
-    animation-name: slideInLeft;
+.box:nth-child(3) {
+  /* animation-name: slideInLeft;
     animation-duration: 500ms;
     animation-delay: 600ms;
-    animation-fill-mode: backwards;
-
-
+    animation-fill-mode: backwards; */
 }
 
+.slide-in-left {
+  animation: slideInLeft 500ms linear both;
+}
 
 @keyframes slideInLeft {
-    from{
-        transform: translateX(-120%);
-    }
-    to{
-        transform: translateX(50%);
-    }
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.slide-in-top {
+  animation: slideInTop 500ms linear both;
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    scale: 0.5;
+    rotate: z -20deg;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    rotate: z 0;
+    transform: translateY(0%);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 500ms linear both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 500ms linear both;
+}
+
+@keyframes zoomIn {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+.box-group {
+  perspective: 1000px;
+}
+
+.door-in {
+  transform-origin: left;
+  animation: doorIn 1000ms ease-in-out both;
+}
+
+@keyframes doorIn {
+  from {
+    opacity: 0;
+    transform: rotateY(60deg);
+  }
+  to {
+    opacity: 1;
+
+    transform: rotateY(0deg);
+  }
+}
+
+.shake {
+  animation: shake 1000ms ease-in-out both;
+}
+
+@keyframes shake {
+  0% {
+    opacity: 0;
+    scale: 0;
+    transform: translateX(-400px);
+  }
+
+  20% {
+    opacity: 1;
+    scale: 0.3;
+
+    transform: translateX(300px);
+  }
+
+  40% {
+    scale: 0.5;
+
+    transform: translateX(-200px);
+  }
+
+  60% {
+    scale: 0.7;
+
+    transform: translateX(200px);
+  }
+
+  80% {
+    scale: 0.8;
+
+    transform: translateX(100px);
+  }
+
+  90% {
+    scale: 0.9;
+
+    transform: translateX(-50px);
+  }
+
+  100% {
+    scale: 1;
+
+    transform: translateX(0px);
+  }
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.delay-1500 {
+  animation-delay: 1500ms;
 }
