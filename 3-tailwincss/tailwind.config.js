@@ -11,6 +11,7 @@ module.exports = {
     "grid.html",
     "position.html",
     "ele.html",
+    "reading.html"
   ],
   theme: {
     extend: {},
