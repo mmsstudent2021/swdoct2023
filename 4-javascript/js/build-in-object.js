@@ -203,33 +203,33 @@
 // const fruits = new Array("apple", "banana", "mango", "orange");
 // console.log(fruits);
 
-const fruits = [
-  "Apple",
-  "Banana",
-  "Orange",
-  "Grapes",
-  "Watermelon",
-  "Strawberry",
-  "Pineapple",
-  "Mango",
-  "Kiwi",
-  "Peach",
-];
+// const fruits = [
+//   "Apple",
+//   "Banana",
+//   "Orange",
+//   "Grapes",
+//   "Watermelon",
+//   "Strawberry",
+//   "Pineapple",
+//   "Mango",
+//   "Kiwi",
+//   "Peach",
+// ];
 
-const chars = ["a", "e", "b", "r", "x"];
-const numbs = [1, 6, 2, 0, 3, 5];
+// const chars = ["a", "e", "b", "r", "x"];
+// const numbs = [1, 6, 2, 0, 3, 5];
 
-console.log(
-  numbs.some(function (el) {
-    return el > 5;
-  })
-);
+// console.log(
+//   numbs.some(function (el) {
+//     return el > 5;
+//   })
+// );
 
-console.log(
-  numbs.every(function (el) {
-    return el < 5;
-  })
-);
+// console.log(
+//   numbs.every(function (el) {
+//     return el < 5;
+//   })
+// );
 
 // console.log(
 //   numbs.reduce(function (pv, cv) {
@@ -245,36 +245,36 @@ console.log(
 //   }, "")
 // );
 
-const gadgets = [
-  { id: 1, name: "Smartphone", price: 599.99, stock: 100, rating: 4.8 },
-  { id: 2, name: "Laptop", price: 1299.99, stock: 50, rating: 4.5 },
-  { id: 3, name: "Smartwatch", price: 199.99, stock: 75, rating: 4.2 },
-  {
-    id: 4,
-    name: "Noise-Canceling Headphones",
-    price: 249.99,
-    stock: 30,
-    rating: 4.7,
-  },
-  { id: 5, name: "Fitness Tracker", price: 79.99, stock: 120, rating: 4.6 },
-  // Add more gadgets as needed
-];
+// const gadgets = [
+//   { id: 1, name: "Smartphone", price: 599.99, stock: 100, rating: 4.8 },
+//   { id: 2, name: "Laptop", price: 1299.99, stock: 50, rating: 4.5 },
+//   { id: 3, name: "Smartwatch", price: 199.99, stock: 75, rating: 4.2 },
+//   {
+//     id: 4,
+//     name: "Noise-Canceling Headphones",
+//     price: 249.99,
+//     stock: 30,
+//     rating: 4.7,
+//   },
+//   { id: 5, name: "Fitness Tracker", price: 79.99, stock: 120, rating: 4.6 },
+//   // Add more gadgets as needed
+// ];
 
-console.table(gadgets);
+// console.table(gadgets);
 
-console.log(
-  gadgets.reduce(function (pv, cv) {
-    // console.log(cv.price);
-    return pv + cv.price;
-  }, 0)
-);
+// console.log(
+//   gadgets.reduce(function (pv, cv) {
+//     // console.log(cv.price);
+//     return pv + cv.price;
+//   }, 0)
+// );
 
-const saleGadgets = gadgets.filter(function (el) {
-  // return el.price < 500;
-  // return el.price > 1000;
-  return el.id === 3;
-  // return el.id === 3 || el.id === 5;
-});
+// const saleGadgets = gadgets.filter(function (el) {
+//   // return el.price < 500;
+//   // return el.price > 1000;
+//   return el.id === 3;
+//   // return el.id === 3 || el.id === 5;
+// });
 
 // console.log(saleGadgets);
 
