@@ -12,7 +12,7 @@
         gap: 5px;
       }
       #result {
-        display: block;
+        display: inline-block;
         width: 250px;
       }
     </style>
@@ -22,19 +22,15 @@
       <h1>Area Calculator</h1>
       <div class="result-box">
         <p class="">Result : <span id="result"></span></p>
-        <button>Store</button>
-        <button>Clear</button>
+        <button onclick="storeResult()">Store</button>
+        <button onclick="clearResult()">Clear</button>
       </div>
       <div class="">
-        <input type="text" id="widthInput" placeholder="width" />
-        <input type="text" id="heightInput" placeholder="height" />
-        <button class="calcBtn">Calculate</button>
+        <input type="number" id="widthInput" placeholder="width" />
+        <input type="number" id="heightInput" placeholder="height" />
+        <button class="calcBtn" onclick="handleBtn()">Calculate</button>
       </div>
-      <ul>
-        <li>15 ft * 50 ft = 750 ft<sup>2</sup></li>
-        <li>20 ft * 50 ft = 1000 ft<sup>2</sup></li>
-        <li>12 ft * 50 ft = 600 ft<sup>2</sup></li>
-      </ul>
+      <ul id="records"></ul>
     </main>
 
     <script src="./js/areacalc.js"></script>
