@@ -1,40 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-
-    <h1>JS Query Selector</h1>
-    <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. In eaque ea distinctio repudiandae? Ipsa ullam ex maxime et minima quibusdam voluptate, voluptas ipsam sit voluptates, deserunt, dolor corrupti quo recusandae.
+    <style>
+      .dd {
+        color: red;
+      }
+      .hs-photo {
+        width: 200px;
+        position: fixed;
+        right: 0;
+        top: 0px;
+        transform: translateY(-100%);
+        transition-duration: 300ms;
+      }
+      .hs-photo.active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="aa bb cc">JS Query Selector</h1>
+    <p class="a">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. In eaque ea
+      distinctio repudiandae? Ipsa ullam ex maxime et minima quibusdam
+      voluptate, voluptas ipsam sit voluptates, deserunt, dolor corrupti quo
+      recusandae.
     </p>
+
+    <a href="https://mms-it.com" id="link1">MMS IT</a>
+    <a href="https://Google.com" id="link2">Google</a>
+
+    <br />
+    <br />
+
+    <img width="200" id="poeImg" src="images/poe-mamhe-thar-3.jpeg" alt="" />
+
+    <br />
+    <button onclick="changeImg('images/poe-mamhe-thar-3.jpeg')">Img 1</button>
+    <button onclick="changeImg('images/poe-mamhe-thar-6.jpg')">Img 2</button>
+    <button onclick="changeImg('images/poe-mamhe-thar-7.jpg')">Img 3</button>
+
+    <hr />
+
+    <button onclick="toggleImg()">toggle</button>
+    <img class="hs-photo" src="./images/poe-mamhe-thar-8.jpg" alt="" />
+
+    <br />
+    <br />
+
     <ul class="lists">
-        <li class="a">Apple</li>
-        <li class="b">Orange</li>
-        <li class="b">Mango</li>
-        <li class="a">Banana</li>
+      <li class="a">Apple</li>
+      <li class="b">Orange</li>
+      <li class="b">Mango</li>
+      <li class="a">Banana</li>
     </ul>
     <form action="">
-        <input type="text" id="yourName" name="your_name">
-        <br>
-        <br>
-        <div>
-            <label for="">Gender</label>
-            <div class="">
-                <label for="male">Male</label>
-                <input type="radio" id="male" name="gender" value="male">
-            </div>
-            <div class="">
-                <label for="female">Female</label>
-                <input type="radio" id="female" name="gender" value="female">
-            </div>
+      <input type="text" id="yourName" name="your_name" />
+      <br />
+      <br />
+      <div>
+        <label for="">Gender</label>
+        <div class="">
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="male">Male</label>
         </div>
+        <div class="">
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="female">Female</label>
+        </div>
+        <div class="">
+          <input type="radio" id="gay" name="gender" value="gay" />
+          <label for="gay">gay</label>
+        </div>
+      </div>
     </form>
 
     <script src="./js/selector.js"></script>
-    
-</body>
+  </body>
 </html>
