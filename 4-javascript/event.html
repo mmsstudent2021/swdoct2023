@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .heading {
+        border: 3px solid black;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+      }
+
+      body {
+        height: 3000px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="heading">My Event Test</h1>
+
+    <form id="testForm" action="https://mms-it.com">
+      <input type="text" id="textInput" required />
+      <br />
+      <br />
+      <select id="fruitSelect" name="fruit">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+        <option value="strawberry">Strawberry</option>
+        <option value="grape">Grape</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <br />
+      <br />
+
+      <input type="file" id="upload" />
+
+      <br />
+      <br />
+      <hr />
+      <button>Submit</button>
+    </form>
+
+    <script>
+      const heading = document.querySelector(".heading");
+      const textInput = document.querySelector("#textInput");
+      const fruitSelect = document.querySelector("#fruitSelect");
+      const upload = document.querySelector("#upload");
+      const testForm = document.querySelector("#testForm");
+
+      //   window.addEventListener("scroll", (event) => {
+      //     // console.log("U scroll", Math.random());
+      //     console.log(event);
+      //   });
+
+      //   console.log("one");
+      //   console.log("two");
+      //   console.log("three");
+
+      //   window.addEventListener("load", (event) => {
+      //     console.log(event);
+      //     console.log("window loaded");
+      //   });
+
+      //   testForm.addEventListener("submit", (event) => {
+      //     event.preventDefault();
+
+      //     console.log("U submit");
+      //   });
+
+      //   upload.addEventListener("change", () => {
+      //     console.log(upload.value);
+      //   });
+
+      //   fruitSelect.addEventListener("change", () => {
+      //     console.log(fruitSelect.value);
+      //   });
+
+      //   textInput.addEventListener("change", () => {
+      //     console.log(textInput.value);
+      //   });
+
+      //   const typing = () => {
+      //     console.log(textInput.value);
+      //   };
+
+      //   textInput.addEventListener("keydown", typing);
+      //   textInput.addEventListener("keyup", typing);
+
+      textInput.addEventListener("focus", (abc) => {
+        console.log(abc);
+        console.log("U focus");
+      });
+
+      //   textInput.addEventListener("blur", () => {
+      //     console.log("U blur");
+      //   });
+
+      const run = (event) => {
+        console.log(event);
+        console.log("U click", Math.random());
+      };
+
+      //   console.log(heading);
+      //   heading.onclick = run;
+
+      //   heading.addEventListener("click", run);
+      //   heading.addEventListener("dblclick", run);
+      //   heading.addEventListener("mouseover", run);
+      //   heading.addEventListener("mouseleave", run);
+      heading.addEventListener("mousemove", run);
+    </script>
+  </body>
+</html>
