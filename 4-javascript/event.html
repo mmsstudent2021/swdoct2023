@@ -83,15 +83,16 @@
       //     console.log(textInput.value);
       //   });
 
-      //   const typing = () => {
-      //     console.log(textInput.value);
-      //   };
+        const typing = (event) => {
+          console.log(event);
+          console.log(textInput.value);
+        };
 
       //   textInput.addEventListener("keydown", typing);
-      //   textInput.addEventListener("keyup", typing);
+        textInput.addEventListener("keyup", typing);
 
       textInput.addEventListener("focus", (abc) => {
-        console.log(abc);
+        // console.log(abc);
         console.log("U focus");
       });
 
@@ -107,11 +108,11 @@
       //   console.log(heading);
       //   heading.onclick = run;
 
-      //   heading.addEventListener("click", run);
+        // heading.addEventListener("click", run);
       //   heading.addEventListener("dblclick", run);
       //   heading.addEventListener("mouseover", run);
       //   heading.addEventListener("mouseleave", run);
-      heading.addEventListener("mousemove", run);
+      // heading.addEventListener("mousemove", run);
     </script>
   </body>
 </html>

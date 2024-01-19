@@ -56,7 +56,7 @@ const createList = (text) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-4 h-4 stroke-zinc-700"
+            class="w-4 h-4 stroke-zinc-700 pointer-events-none"
           >
             <path
               stroke-linecap="round"
@@ -73,36 +73,40 @@ const createList = (text) => {
   const listCheckbox = list.querySelector(".list-checkbox");
   const listText = list.querySelector(".list-text");
 
-  listEditBtn.addEventListener("click", () => {
-    const input = document.createElement("input");
-    input.className = "border border-zinc-700 px-2 focus-visible:outline-none";
-    input.value = listText.innerText;
-    listText.after(input);
-    input.focus();
-    listText.classList.toggle("hidden");
-    
-    input.addEventListener("blur",() => {
-        listText.innerText = input.value;
-        input.remove();
-        listText.classList.toggle("hidden");
-    })
-  });
+  listDelBtn.addEventListener("click", deleteList);
+  listCheckbox.addEventListener("change", checkList);
+  listEditBtn.addEventListener("click", editList);
 
-  listDelBtn.addEventListener("click", () => {
-    // if (confirm("Are U sure to delete ?")) {
-    //   list.remove();
-    // }
-    // confirm("Are U sure to delete ?") ? list.remove() : ""
-    confirm("Are U sure to delete ?") && list.remove();
-    updateCounter();
-    // totalCount.innerText = parseInt(totalCount.innerText) - 1;
-  });
+  // listEditBtn.addEventListener("click", () => {
+  //   const input = document.createElement("input");
+  //   input.className = "border border-zinc-700 px-2 focus-visible:outline-none";
+  //   input.value = listText.innerText;
+  //   listText.after(input);
+  //   input.focus();
+  //   listText.classList.toggle("hidden");
 
-  listCheckbox.addEventListener("click", () => {
-    console.log("u check");
-    listText.classList.toggle("line-through");
-    updateCounter();
-  });
+  //   input.addEventListener("blur", () => {
+  //     listText.innerText = input.value;
+  //     input.remove();
+  //     listText.classList.toggle("hidden");
+  //   });
+  // });
+
+  // listDelBtn.addEventListener("click", () => {
+  //   // if (confirm("Are U sure to delete ?")) {
+  //   //   list.remove();
+  //   // }
+  //   // confirm("Are U sure to delete ?") ? list.remove() : ""
+  //   confirm("Are U sure to delete ?") && list.remove();
+  //   updateCounter();
+  //   // totalCount.innerText = parseInt(totalCount.innerText) - 1;
+  // });
+
+  // listCheckbox.addEventListener("click", () => {
+  //   console.log("u check");
+  //   listText.classList.toggle("line-through");
+  //   updateCounter();
+  // });
 
   return list;
 };
@@ -120,5 +124,64 @@ const addList = () => {
   textInput.value = null;
 };
 
+const deleteList = (event) => {
+  const list = event.target.closest(".list");
+  if (confirm("Are U sure to Delete")) {
+    list.remove();
+    updateCounter();
+  }
+  // console.log(list);
+  // console.dir(event.target);
+  // console.log(event.target.parentElement.parentElement.parentElement);
+  // console.log("U delete");
+};
+
+const checkList = (event) => {
+  const listText = event.target.nextElementSibling;
+  listText.classList.toggle("line-through");
+  updateCounter();
+  // console.dir(event.target);
+};
+
+const editList = (event) => {
+  console.log("U edit");
+  const list = event.target.closest(".list");
+  const listText = list.querySelector(".list-text");
+
+  const input = document.createElement("input");
+  input.className = "border border-zinc-700 px-2 focus-visible:outline-none";
+  input.value = listText.innerText;
+  listText.after(input);
+  input.focus();
+
+  listText.classList.toggle("hidden");
+  input.addEventListener("blur", updateList);
+};
+
+const updateList = (event) => {
+  console.log("U update");
+  const currentValue = event.target.value;
+  const list = event.target.closest(".list");
+  const listText = list.querySelector(".list-text");
+
+  listText.innerText = currentValue;
+
+  event.target.remove();
+  listText.classList.toggle("hidden");
+
+  // console.log(event.target);
+  // () => {
+  //   listText.innerText = input.value;
+  //   input.remove();
+  //   listText.classList.toggle("hidden");
+  // }
+};
+
 // listener
 addBtn.addEventListener("click", addList);
+textInput.addEventListener(
+  "keyup",
+  (event) => event.key === "Enter" && addList()
+);
+
+// element.addEventListener("eventType",handler)
