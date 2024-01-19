@@ -23,17 +23,18 @@ const countDoneListTotal = () => {
 
 const createList = (text) => {
   const list = document.createElement("div");
-  list.className = "list border border-zinc-700 p-3 mb-3";
+  list.className =
+    "list group bg-white animate__animated animate__shakeX border border-zinc-700 p-3 mb-3 overflow-hidden";
 
   list.innerHTML = `
     <div class="flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <input type="checkbox" class="list-checkbox w-4 h-4" />
+        <input type="checkbox" class="list-checkbox accent-zinc-700 w-4 h-4" />
         <label class="list-text" for="">${text}</label>
       </div>
   
-      <div class="flex gap-2">
-        <button class="list-edit-btn border border-zinc-700 p-2">
+      <div class="flex gap-2 duration-300 translate-x-[120%] group-hover:translate-x-0">
+        <button class="list-edit-btn border duration-200 active:scale-90 border-zinc-700 p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -49,7 +50,7 @@ const createList = (text) => {
             />
           </svg>
         </button>
-        <button class="list-del-btn border border-zinc-700 p-2">
+        <button class="list-del-btn border duration-200 active:scale-90 border-zinc-700 p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -127,8 +128,13 @@ const addList = () => {
 const deleteList = (event) => {
   const list = event.target.closest(".list");
   if (confirm("Are U sure to Delete")) {
-    list.remove();
-    updateCounter();
+    list.classList.remove("animate__shakeX");
+    list.classList.add("animate__flipOutY");
+
+    list.addEventListener("animationend", () => {
+      list.remove();
+      updateCounter();
+    });
   }
   // console.log(list);
   // console.dir(event.target);
