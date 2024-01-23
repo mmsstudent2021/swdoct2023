@@ -15,12 +15,31 @@
       body {
         height: 3000px;
       }
+
+      .list {
+        border: 1px solid black;
+      }
+      .list:active {
+        background-color: lightgray;
+      }
+
+      .border {
+        border: 1px solid black;
+        padding: 30px;
+      }
+      /* .box:active,
+      .innerBox:active,
+      .card:active,
+      .title:active,
+      .para:active {
+        background-color: lightgrey;
+      } */
     </style>
   </head>
   <body>
-    <h1 class="heading">My Event Test</h1>
+    <!-- <h1 class="heading">My Event Test</h1> -->
 
-    <form id="testForm" action="https://mms-it.com">
+    <!-- <form id="testForm" action="https://mms-it.com">
       <input type="text" id="textInput" required />
       <br />
       <br />
@@ -30,7 +49,6 @@
         <option value="orange">Orange</option>
         <option value="strawberry">Strawberry</option>
         <option value="grape">Grape</option>
-        <!-- Add more options as needed -->
       </select>
 
       <br />
@@ -42,14 +60,115 @@
       <br />
       <hr />
       <button>Submit</button>
-    </form>
+    </form> -->
+
+    <input type="text" id="textInput" />
+
+    <ul id="listGroup">
+      <li class="list">apple</li>
+      <li class="list">orange</li>
+      <li class="list">mango</li>
+      <li class="list">banana</li>
+    </ul>
+
+    <!-- <div class="box border">
+      <div class="innerBox border">
+        <div class="card border">
+          <h1 class="title border">Event Test</h1>
+          <p class="para border">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis,
+            necessitatibus!
+          </p>
+        </div>
+      </div>
+    </div> -->
 
     <script>
+      // document.querySelector(".box").addEventListener(
+      //   "click",
+      //   () => {
+      //     console.log("U click Box");
+      //   },
+      //   false
+      // );
+
+      // document.querySelector(".innerBox").addEventListener(
+      //   "click",
+      //   () => {
+      //     console.log("U click innerBox");
+      //   },
+      //   false
+      // );
+
+      // document.querySelector(".card").addEventListener(
+      //   "click",
+      //   () => {
+      //     console.log("U click card");
+      //   },
+      //   false
+      // );
+
+      // document.querySelector(".title").addEventListener(
+      //   "click",
+      //   (event) => {
+      //     event.stopPropagation();
+      //     console.log("U click title");
+      //   },
+      //   false
+      // );
+
+      // document.querySelector(".para").addEventListener(
+      //   "click",
+      //   (event) => {
+      //     // event.stopPropagation();
+      //     console.log("U click para");
+      //   },
+      //   false
+      // );
+
       const heading = document.querySelector(".heading");
+      const lists = document.querySelectorAll(".list");
       const textInput = document.querySelector("#textInput");
-      const fruitSelect = document.querySelector("#fruitSelect");
-      const upload = document.querySelector("#upload");
-      const testForm = document.querySelector("#testForm");
+      const listGroup = document.querySelector("#listGroup");
+
+      const createList = (text) => {
+        const list = document.createElement("li");
+        list.classList.add("list");
+        list.innerText = text;
+        return list;
+      };
+
+      console.log(lists);
+
+      listGroup.addEventListener("click", (event) => {
+        console.log(event.target);
+      });
+
+      // lists.forEach((list) => {
+      //   list.addEventListener("click", () => {
+      //     console.log(list.innerText);
+      //   });
+      // });
+
+      textInput.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          listGroup.append(createList(textInput.value));
+          textInput.value = null;
+        }
+      });
+
+      // const events = ["click","mouseover","mouseout","mousemove"];
+
+      // events.forEach(el  => {
+      //   heading.addEventListener(el,(event) => {
+      //     console.log(event.type)
+      //   })
+      // })
+
+      // const textInput = document.querySelector("#textInput");
+      // const fruitSelect = document.querySelector("#fruitSelect");
+      // const upload = document.querySelector("#upload");
+      // const testForm = document.querySelector("#testForm");
 
       //   window.addEventListener("scroll", (event) => {
       //     // console.log("U scroll", Math.random());
@@ -83,32 +202,32 @@
       //     console.log(textInput.value);
       //   });
 
-        const typing = (event) => {
-          console.log(event);
-          console.log(textInput.value);
-        };
+      // const typing = (event) => {
+      //   console.log(event);
+      //   console.log(textInput.value);
+      // };
 
       //   textInput.addEventListener("keydown", typing);
-        textInput.addEventListener("keyup", typing);
+      //   textInput.addEventListener("keyup", typing);
 
-      textInput.addEventListener("focus", (abc) => {
-        // console.log(abc);
-        console.log("U focus");
-      });
+      // textInput.addEventListener("focus", (abc) => {
+      //   // console.log(abc);
+      //   console.log("U focus");
+      // });
 
       //   textInput.addEventListener("blur", () => {
       //     console.log("U blur");
       //   });
 
-      const run = (event) => {
-        console.log(event);
-        console.log("U click", Math.random());
-      };
+      // const run = (event) => {
+      //   console.log(event);
+      //   console.log("U click", Math.random());
+      // };
 
       //   console.log(heading);
       //   heading.onclick = run;
 
-        // heading.addEventListener("click", run);
+      // heading.addEventListener("click", run);
       //   heading.addEventListener("dblclick", run);
       //   heading.addEventListener("mouseover", run);
       //   heading.addEventListener("mouseleave", run);
