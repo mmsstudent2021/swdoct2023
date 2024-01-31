@@ -3,11 +3,13 @@ import listener from "./core/listener.js";
 
 class Invoice {
   init() {
+    
     console.log("Invoice App Start");
 
     initialRender();
 
     listener();
+
   }
 }
 
