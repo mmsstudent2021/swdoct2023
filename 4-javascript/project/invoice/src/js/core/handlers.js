@@ -1,3 +1,4 @@
+import { createProduct, productRender } from "./product.js";
 import {
   addRecordQuantity,
   createRecord,
@@ -5,7 +6,15 @@ import {
   subRecordQuantity,
   updateRecordTotal,
 } from "./record.js";
-import { createForm, inventorySheet, recordTotal, rowGroup } from "./selectors.js";
+import {
+  createForm,
+  inventorySheet,
+  newProductCreateForm,
+  productGroup,
+  productSelect,
+  recordTotal,
+  rowGroup,
+} from "./selectors.js";
 import { products } from "./variables.js";
 
 export const createFormHandler = (e) => {
@@ -54,4 +63,22 @@ export const rowGroupHandler = (event) => {
 
 export const manageInventoryBtnHandler = () => {
   inventorySheet.classList.toggle("-translate-x-full");
-}
+};
+
+export const newProductCreateFormHandler = (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(newProductCreateForm);
+  const newProduct = {
+    id: Date.now(),
+    name: formData.get("new_product_name"),
+    price: formData.get("new_product_price"),
+  };
+
+  // productGroup.append(createProduct(newProduct));
+  // productSelect.append(new Option(newProduct.name,newProduct.id));
+  products.push(newProduct);
+  productRender(products);
+
+  console.log("U submit");
+};
