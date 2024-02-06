@@ -36,6 +36,20 @@ export const deleteRecord = (event) => {
   }
 };
 
+export const updateRecord = (productId, q) => {
+  // const row = event.target.closest(".row");
+  const row = document.querySelector(`[row-product-id='${productId}']`);
+  const currentQuantity = row.querySelector(".row-quantity");
+  const currentCost = row.querySelector(".row-cost");
+  const currentPrice = row.querySelector(".row-product-price");
+
+  currentQuantity.innerText = parseInt(currentQuantity.innerText) + q;
+
+  currentCost.innerText = currentPrice.innerText * currentQuantity.innerText;
+
+  updateRecordTotal();
+};
+
 export const addRecordQuantity = (event) => {
   const row = event.target.closest(".row");
   const currentQuantity = row.querySelector(".row-quantity");

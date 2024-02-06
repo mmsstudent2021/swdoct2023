@@ -14,7 +14,7 @@
         <h1 class="font-bold text-3xl">MMS Solutions</h1>
         <p class="text-neutral-500">Invoice App</p>
       </header>
-      <section class="mb-10" id="createFromSection">
+      <section class="mb-10 print:hidden" id="createFromSection">
         <form action="#" id="createForm">
           <div class="flex gap-3 border rounded-lg p-5">
             <div class="basis-5/12">
@@ -87,7 +87,7 @@
         </tbody>
         <tfoot>
           <tr
-            class="bg-gray-100 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            class="border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
           >
             <th
               scope="row"
@@ -106,7 +106,7 @@
 
       <section
         id="inventorySheet"
-        class="fixed w-80 h-screen bg-gray-50 shadow-lg left-0 top-0 duration-300 z-50 p-5 -translate-x-full-"
+        class="fixed w-80 h-screen bg-gray-50 shadow-lg left-0 top-0 duration-300 z-50 p-5 -translate-x-full"
       >
         <div class="sheet-header flex justify-between mb-10">
           <h1 class="text-2xl font-bold">Your Product</h1>
@@ -176,7 +176,7 @@
         </form>
       </section>
 
-      <footer class="flex justify-end mt-auto">
+      <footer class="flex justify-end mt-auto print:hidden">
         <button
           type="button"
           id="manageInventoryBtn"
@@ -194,7 +194,7 @@
       </footer>
       <template id="rowTemplate">
         <tr
-          class="row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+          class="row group bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <td class="px-6 py-4 row-no"></td>
 
@@ -209,7 +209,7 @@
           </td>
           <td class="px-6 py-4 text-end">
             <button
-              class="row-q-sub active:scale-75 duration-300 bg-gray-200 rounded p-1"
+              class="row-q-sub active:scale-75 duration-200 opacity-0 pointer-events-none group-hover:opacity-100 -translate-x-10 group-hover:pointer-events-auto group-hover:translate-x-0 bg-gray-200 rounded p-1 print:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -228,7 +228,7 @@
             </button>
             <span class="row-quantity w-5 inline-block">0</span>
             <button
-              class="row-q-add active:scale-90 duration-300 bg-gray-200 rounded p-1"
+              class="row-q-add active:scale-90 bg-gray-200 rounded p-1 print:hidden duration-200 opacity-0 pointer-events-none group-hover:opacity-100 translate-x-10 group-hover:pointer-events-auto group-hover:translate-x-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +249,7 @@
           <td class="px-6 py-4 text-end">$<span class="row-cost">000</span></td>
           <td class="px-6 py-4 text-right">
             <button
-              class="row-del-btn font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              class="row-del-btn duration-200 opacity-0 pointer-events-none group-hover:opacity-100 translate-x-10 group-hover:pointer-events-auto group-hover:translate-x-0 print:hidden font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

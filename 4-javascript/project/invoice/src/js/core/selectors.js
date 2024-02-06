@@ -10,8 +10,7 @@ export const inventorySheetCloseBtn = document.querySelector(
 export const recordTotal = document.querySelector("#recordTotal");
 export const productSelect = document.querySelector("#productSelect");
 export const newProductCreateForm = document.querySelector("#newProductCreateForm");
-
-
+export const printBtn = document.querySelector("#printBtn");
 
 export const rowTemplate = document.querySelector("#rowTemplate");
 export const productTemplate = document.querySelector("#productTemplate");
