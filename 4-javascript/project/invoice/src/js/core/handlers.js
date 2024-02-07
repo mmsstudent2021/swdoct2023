@@ -49,7 +49,7 @@ export const createFormHandler = (e) => {
   }
 
   // calculate total
-  updateRecordTotal();
+  // updateRecordTotal();
   createForm.reset();
 };
 

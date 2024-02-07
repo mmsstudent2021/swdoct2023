@@ -1,4 +1,4 @@
-import { recordTotal, rowTemplate } from "./selectors.js";
+import { recordTotal, rowGroup, rowTemplate } from "./selectors.js";
 
 // let recordIndex = 1;
 
@@ -32,7 +32,7 @@ export const deleteRecord = (event) => {
   // console.log(row);
   if (confirm("Are U sure delete row ?")) {
     row.remove();
-    updateRecordTotal();
+    // updateRecordTotal();
   }
 };
 
@@ -43,11 +43,13 @@ export const updateRecord = (productId, q) => {
   const currentCost = row.querySelector(".row-cost");
   const currentPrice = row.querySelector(".row-product-price");
 
-  currentQuantity.innerText = parseInt(currentQuantity.innerText) + q;
+  if (q > 0 || currentQuantity.innerText > 1) {
+    currentQuantity.innerText = parseInt(currentQuantity.innerText) + q;
 
-  currentCost.innerText = currentPrice.innerText * currentQuantity.innerText;
+    currentCost.innerText = currentPrice.innerText * currentQuantity.innerText;
 
-  updateRecordTotal();
+    // updateRecordTotal();
+  }
 };
 
 export const addRecordQuantity = (event) => {
@@ -72,4 +74,20 @@ export const subRecordQuantity = (event) => {
   } else {
     deleteRecord(event);
   }
+};
+
+export const recordObserver = () => {
+  const run = () => {
+    // console.log("U change row group");
+    updateRecordTotal();
+  };
+
+  const observerOption = {
+    childList: true,
+    subtree: true,
+  };
+
+  const observer = new MutationObserver(run);
+
+  observer.observe(rowGroup, observerOption);
 };
