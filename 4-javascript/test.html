@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="listGroup"></ul>
+
+    <script>
+      const listGroup = document.querySelector("#listGroup");
+      const li = document.createElement("li");
+      //   li.innerText = "apple";
+      const textNode = document.createTextNode("apple");
+      li.append(textNode);
+
+      const li2 = document.createElement("li");
+      //   li.innerText = "apple";
+      const textNode2 = document.createTextNode("orange");
+      li2.append(textNode2);
+
+      //   const textNode2 = document.createTextNode(" par");
+      //   li.append(textNode2);
+
+      //   listGroup.append(li);
+
+      const frg = document.createDocumentFragment();
+      frg.append(li);
+      frg.append(li2);
+
+      listGroup.append(frg);
+
+      listGroup.addEventListener('click',(event) => {
+
+        console.log(event)
+        
+      })
+
+      console.log(listGroup);
+    </script>
+  </body>
+</html>
