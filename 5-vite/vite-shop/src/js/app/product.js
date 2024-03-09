@@ -4,7 +4,12 @@ import {
   productGroup,
   productTemplate,
 } from "../core/selectors";
-import { crateCartItem } from "./cart";
+import {
+  countCartItem,
+  crateCartItem,
+  updateCartItemCount,
+  updateCartTotal,
+} from "./cart";
 
 export const renderStar = (rate) => {
   let stars = "";
@@ -63,6 +68,11 @@ export const handleProductGroup = (event) => {
     );
 
     cartItemGroup.append(crateCartItem(currentProduct, 1));
+
+    updateCartItemCount();
+    updateCartTotal();
+    
+    // countCartItem();
     // console.log(currentProduct);
   }
 };
