@@ -2,7 +2,10 @@
 
 @import url("./node_modules/sweetalert2/dist/sweetalert2.min.css");
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cat-btn.active {
+  @apply bg-gray-700 text-white;
+}
