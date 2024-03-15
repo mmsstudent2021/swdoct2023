@@ -49,13 +49,7 @@ export const handlerCartItemGroup = (event) => {
   if (event.target.classList.contains("cart-item-remove")) {
     const currentCart = event.target.closest(".cart-item");
     const currentProductId = currentCart.getAttribute("cart-product-id");
-    const currentProduct = productGroup.querySelector(
-      `[product-id='${currentProductId}']`
-    );
-
-    const currentProductAddCartBtn = currentProduct.querySelector(
-      ".product-add-cart-btn"
-    );
+    
    
     Swal.fire({
       title: "Are you sure?",
@@ -70,8 +64,16 @@ export const handlerCartItemGroup = (event) => {
         currentCart.remove();
         updateCartItemCount();
         updateCartTotal();
-        currentProductAddCartBtn.removeAttribute("disabled");
-        currentProductAddCartBtn.innerText = "Add to Cart";
+        const currentProduct = productGroup.querySelector(
+          `[product-id='${currentProductId}']`
+        );    
+        if(currentProduct){
+          const currentProductAddCartBtn = currentProduct.querySelector(
+            ".product-add-cart-btn"
+          );
+          currentProductAddCartBtn.removeAttribute("disabled");
+          currentProductAddCartBtn.innerText = "Add to Cart";
+        }
     
       }
     });

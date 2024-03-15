@@ -1,6 +1,7 @@
 import { products } from "../core/data";
 import {
   cartItemGroup,
+  openDrawer,
   productGroup,
   productTemplate,
 } from "../core/selectors";
@@ -49,12 +50,15 @@ export const createProduct = (product) => {
     product.rating.rate
   );
 
-  const isExitedInCart = cartItemGroup.querySelector(`[cart-product-id='${product.id}']`);
-  if(isExitedInCart){
-    template.querySelector(".product-add-cart-btn").setAttribute("disabled",true);
-    template.querySelector(".product-add-cart-btn").innerText = "Added"
+  const isExitedInCart = cartItemGroup.querySelector(
+    `[cart-product-id='${product.id}']`
+  );
+  if (isExitedInCart) {
+    template
+      .querySelector(".product-add-cart-btn")
+      .setAttribute("disabled", true);
+    template.querySelector(".product-add-cart-btn").innerText = "Added";
   }
-
 
   return template;
 };
@@ -67,8 +71,8 @@ export const renderProduct = (products) => {
 export const handleProductGroup = (event) => {
   if (event.target.classList.contains("product-add-cart-btn")) {
     const currentBtn = event.target;
-    currentBtn.setAttribute("disabled",true);
-    currentBtn.innerText = "Added"
+    currentBtn.setAttribute("disabled", true);
+    currentBtn.innerText = "Added";
 
     const currentProductCard = event.target.closest(".product-card");
     const currentProductCardId = parseInt(
@@ -78,10 +82,60 @@ export const handleProductGroup = (event) => {
       (product) => product.id === currentProductCardId
     );
 
-    cartItemGroup.append(crateCartItem(currentProduct, 1));
+    const currentProductCardImg =
+      currentProductCard.querySelector(".product-img");
 
-    updateCartItemCount();
-    updateCartTotal();
+    // console.log(currentProductCardImg);
+    // console.log(openDrawer.getBoundingClientRect());
+
+    const animateImg = new Image();
+    animateImg.src = currentProductCardImg.src;
+    animateImg.style.position = "fixed";
+    animateImg.style.top =
+      currentProductCardImg.getBoundingClientRect().top + "px";
+    animateImg.style.left =
+      currentProductCardImg.getBoundingClientRect().left + "px";
+    animateImg.style.width =
+      currentProductCardImg.getBoundingClientRect().width + "px";
+    animateImg.style.height =
+      currentProductCardImg.getBoundingClientRect().height + "px";
+    // animateImg.style.border = "5px solid black";
+    document.body.append(animateImg);
+
+    // console.log(animateImg.getBoundingClientRect());
+
+    const keyframes = [
+      {
+        top: currentProductCardImg.getBoundingClientRect().top + "px",
+        left: currentProductCardImg.getBoundingClientRect().left + "px",
+      },
+      {
+        top: openDrawer.querySelector("svg").getBoundingClientRect().top + "px",
+        left:
+          openDrawer.querySelector("svg").getBoundingClientRect().left + "px",
+        height: "0px",
+        width: "0px",
+        transform: "rotate(2turn)",
+      },
+    ];
+    const duration = 500;
+
+    const addToCartAnimation = animateImg.animate(keyframes, duration);
+
+    const handleAnimationFinish = () => {
+      animateImg.remove();
+      openDrawer.classList.add("animate__tada");
+      openDrawer.addEventListener("animationend", () => {
+        openDrawer.classList.remove("animate__tada");
+      });
+
+      cartItemGroup.append(crateCartItem(currentProduct, 1));
+
+      updateCartItemCount();
+      updateCartTotal();
+    };
+
+    addToCartAnimation.addEventListener("finish", handleAnimationFinish);
 
     // countCartItem();
     // console.log(currentProduct);

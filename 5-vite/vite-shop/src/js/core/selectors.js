@@ -2,6 +2,7 @@ export const app = document.querySelector("#app");
 export const cartItemCount = document.querySelector("#cartItemCount");
 export const cartCount = document.querySelector("#cartCount");
 export const cartTotal = document.querySelector("#cartTotal");
+export const openDrawer = document.querySelector("#openDrawer");
 
 export const productGroup = document.querySelector("#productGroup");
 export const productTemplate = document.querySelector("#productTemplate");
