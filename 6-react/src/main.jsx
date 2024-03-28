@@ -54,3 +54,17 @@ root.render(<App />); // react node
 // );
 
 // console.log(tasks);
+
+// html
+// <h1 class="aa" title='hello'></h1>
+
+// jsx
+// <h1 className="aa" title='hello'></h1>
+
+// const area = (x, y) => {
+//   return x * y;
+// };
+
+// console.log(area(15, 50));
+// console.log(area(20, 50));
+// console.log(area(10, 45));
