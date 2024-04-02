@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Box = (props) => {
-  const [hide, setHide] = useState(true);
+  // console.log(props);
   const handleOpen = () => {
     setHide(false);
   };
@@ -11,7 +11,8 @@ const Box = (props) => {
   };
 
   const handleToggle = () => {
-    setHide(!hide);
+    // setHide(!hide);
+    props.clickBox(props.id);
   };
   return (
     <div className="grid grid-cols-2 px-5 py-3 gap-3">
@@ -19,7 +20,9 @@ const Box = (props) => {
         onClick={handleToggle}
         className=" py-3 rounded-lg bg-blue-400  active:scale-90 duration-200 text-white col-span-2 border flex items-center justify-between gap-3 px-5"
       >
-        <h1 className="font-serif font-bold text-2xl">{props.question}</h1>
+        <h1 className="font-serif font-bold text-2xl">
+          {props.question} [ {props.id} ]
+        </h1>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +30,7 @@ const Box = (props) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`w-6 h-6 duration-200 ${!hide && "rotate-180"}`}
+          className={`w-6 h-6 duration-200 ${!props.hide && "rotate-180"}`}
         >
           <path
             strokeLinecap="round"
@@ -39,7 +42,7 @@ const Box = (props) => {
 
       <div
         className={` ${
-          hide && "hidden"
+          props.hide && "hidden"
         } p-5 rounded-lg bg-gray-100 col-span-2 border`}
       >
         <p>{props.answer}</p>
