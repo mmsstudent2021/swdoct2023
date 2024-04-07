@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 const List = (props) => {
+  // const [check,setCheck] = useState();
+
+  const [isEdit, setIsEdit] = useState(false);
+  const [newJob, setNewJob] = useState(props.job);
+
+  const handleNewJobInput = (event) => {
+    setNewJob(event.target.value);
+  };
+
+  const handleNewJobInputUpdate = (event) => {
+    if (event.key === "Escape") {
+      console.log("update");
+      props.editTask(newJob, props.id);
+      setIsEdit(false);
+    }
+  };
+
+  const handleCheckbox = () => {
+    props.checkTask(props.id);
+  };
+
+  const handleDelBtn = () => {
+    if (confirm("Are you sure to delete?")) {
+      props.deleteTask(props.id);
+    }
+  };
+
+  const handleEditBtn = () => {
+    setIsEdit(true);
+  };
   return (
     <div
-      className={`group animate__animated animate__fadeInLeft border mb-3 overflow-hidden border-neutral-700 p-5 flex justify-between items-center ${
-        props.isDone ? "bg-red-100" : ""
+      className={`group animate__animated animate__fadeInLeft border mb-3 overflow-hidden border-neutral-700 p-5 flex justify-between items-center duration-200 ${
+        props.isDone
+          ? " pointer-events-none bg-gray-200 opacity-40 scale-90"
+          : ""
       }`}
     >
       <div className="content flex items-center gap-3">
@@ -12,11 +44,27 @@ const List = (props) => {
           className="list-check accent-neutral-700 w-4 h-4"
           type="checkbox"
           checked={props.isDone}
+          onChange={handleCheckbox}
+          disabled={isEdit}
         />
-        <div className="list-text">{props.job}</div>
+
+        {isEdit ? (
+          <input
+            type="text"
+            className=" border border-stone-700 text-xs py-1 px-2"
+            value={newJob}
+            onChange={handleNewJobInput}
+            onKeyUp={handleNewJobInputUpdate}
+          />
+        ) : (
+          <p className={`${props.isDone && "line-through"}`}>{props.job}</p>
+        )}
       </div>
       <div className="control opacity-100 pointer-events-none duration-300 translate-x-[100px] group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-x-0 flex gap-1">
-        <button className="list-edit duration-300 active:scale-75 disabled:opacity-20">
+        <button
+          onClick={handleEditBtn}
+          className="list-edit duration-300 active:scale-75 disabled:opacity-20"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -32,7 +80,10 @@ const List = (props) => {
             />
           </svg>
         </button>
-        <button className="list-del duration-300 active:scale-75">
+        <button
+          onClick={handleDelBtn}
+          className="list-del duration-300 active:scale-75"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

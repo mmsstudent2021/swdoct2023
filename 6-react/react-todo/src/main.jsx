@@ -3,7 +3,6 @@
 // import { createElement } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import Hhz from "./Hhz";
 import "./style.css";
 
 const rootElement = document.querySelector("#root");

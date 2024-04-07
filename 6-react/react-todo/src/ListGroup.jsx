@@ -2,36 +2,21 @@ import React from "react";
 import EmptyList from "./EmptyList";
 import List from "./List";
 
-const ListGroup = () => {
-  const tasks = [
-    {
-      id: 1,
-      job: "read js book",
-      isDone: true,
-    },
-    {
-      id: 2,
-      job: "meet with client",
-      isDone: true,
-    },
-    {
-      id: 3,
-      job: "prepare for interview",
-      isDone: false,
-    },
-    {
-      id: 4,
-      job: "read react doc",
-      isDone: false,
-    },
-  ];
-
+const ListGroup = (props) => {
   return (
     <div id="listGroup">
       <EmptyList />
 
-      {tasks.map((task) => (
-        <List job={task.job} isDone={task.isDone} />
+      {props.tasks.map((task) => (
+        <List
+          checkTask={props.checkTask}
+          deleteTask={props.deleteTask}
+          editTask={props.editTask}
+          key={task.id}
+          job={task.job}
+          isDone={task.isDone}
+          id={task.id}
+        />
       ))}
 
       {/* <List job="san" isDone={true} />

@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ListCreateFrom = () => {
+const ListCreateFrom = (props) => {
+  const [text, setText] = useState("");
+
+  const handleTextInput = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleAddBtn = () => {
+    props.addTask(text);
+    setText("")
+  };
+
   return (
     <div className="flex mb-5">
       <input
         className="flex-grow border border-neutral-700 h-14 px-3 focus-visible:outline-none"
         type="text"
         id="textInput"
+        value={text}
+        onChange={handleTextInput}
       />
       <button
-        id="addBtn"
+        onClick={handleAddBtn}
         className="h-14 w-14 bg-neutral-700 text-white flex justify-center items-center"
       >
         <svg
