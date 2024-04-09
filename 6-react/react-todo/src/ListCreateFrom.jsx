@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from 'react-hot-toast'
 
 const ListCreateFrom = (props) => {
   const [text, setText] = useState("");
@@ -9,9 +10,18 @@ const ListCreateFrom = (props) => {
 
   const handleAddBtn = () => {
     props.addTask(text);
-    setText("")
+    setText("");
   };
 
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      props.addTask(text);
+      setText("");
+      toast.success("List created",{
+        
+      })
+    }
+  };
   return (
     <div className="flex mb-5">
       <input
@@ -20,6 +30,7 @@ const ListCreateFrom = (props) => {
         id="textInput"
         value={text}
         onChange={handleTextInput}
+        onKeyUp={handleEnter}
       />
       <button
         onClick={handleAddBtn}

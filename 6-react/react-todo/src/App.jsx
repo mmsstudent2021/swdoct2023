@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import ListCreateFrom from "./ListCreateFrom";
 import ListStatus from "./ListStatus";
 import ListGroup from "./ListGroup";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [tasks, setTask] = useState([
@@ -68,7 +69,13 @@ const App = () => {
       <Heading text="Todo App" />
       <ListCreateFrom addTask={addTask} />
       <ListStatus tasks={tasks} />
-      <ListGroup editTask={editTask} deleteTask={deleteTask} checkTask={checkTask} tasks={tasks} />
+      <ListGroup
+        editTask={editTask}
+        deleteTask={deleteTask}
+        checkTask={checkTask}
+        tasks={tasks}
+      />
+      <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );
 };

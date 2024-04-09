@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const List = (props) => {
   // const [check,setCheck] = useState();
@@ -23,9 +25,29 @@ const List = (props) => {
   };
 
   const handleDelBtn = () => {
-    if (confirm("Are you sure to delete?")) {
-      props.deleteTask(props.id);
-    }
+    // if (confirm("Are you sure to delete?")) {
+    //   props.deleteTask(props.id);
+    // }
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        props.deleteTask(props.id);
+        toast.success("List deleted");
+        // Swal.fire({
+        //   title: "Deleted!",
+        //   text: "Your file has been deleted.",
+        //   icon: "success",
+        // });
+      }
+    });
   };
 
   const handleEditBtn = () => {
@@ -100,6 +122,7 @@ const List = (props) => {
           </svg>
         </button>
       </div>
+
     </div>
   );
 };
