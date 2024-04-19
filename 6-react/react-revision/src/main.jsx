@@ -1,5 +1,6 @@
 import React, { createElement } from "react";
 import { createRoot } from "react-dom/client";
+import App from "./App";
 
 const root = document.querySelector("#root");
 
@@ -22,43 +23,66 @@ const reactRoot = createRoot(root);
 //   )
 // );
 
-const title = "san kyi tar";
+// const title = "san kyi tar";
 
-console.dir(document);
-console.log(React);
+// console.dir(document);
+// console.log(React);
 
 // is it 2024
 
+const length = 5;
+const numbs = Array.from({ length: 5 }, (_, index) => index + 1);
+
+// console.log(numbs);
+
 const d = new Date();
-const arr = ["a", "b", "c"];
+const fruits = ["apple", "banana", "orange", "grape", "strawberry"];
 const obj = { a: "aaa", b: "bbb", c: "ccc" };
+
+const hearts = [];
+
+const products = [
+  { id: 1, name: "Apple", price: 1.5, stock: 0 },
+  { id: 2, name: "Banana", price: 0.75, stock: 150 },
+  { id: 3, name: "Orange", price: 2.0, stock: 0 },
+  { id: 4, name: "Grapes", price: 3.25, stock: 120 },
+  { id: 5, name: "Strawberry", price: 4.0, stock: 90 },
+];
+
+for (let i = 1; i <= 5; i++) {
+  hearts.push(<h1 key={i}>&hearts;</h1>);
+}
+
+// console.log(hearts);
+
+const StockBadge = (num) => {
+  if (num === 0) {
+    return <b>Out of Stock</b>;
+  }
+  return num;
+};
 
 const heading = (
   <>
-    <h1
-      id="heading"
-      className="text-3xl font-bold underline"
-      title="page title"
-      style={{
-        color: "red",
-        backgroundColor: "black",
-      }}
-    >
-      {/* It is {d.getFullYear()} */}
-      {/* {obj} */}
-    </h1>
-    <p>my testing paragraph par</p>
-    <form action="">
-      <label htmlFor="aa">your name</label>
-      <input type="text" id="aa" className="" />
-    </form>
+    <h2>List Rendering</h2>
 
     <ul>
-      {arr.map((x) => (
-        <li key={x}>{x}</li>
+      {products.map(({ id, name, price, stock }) => (
+        <li key={id}>
+          {name} - {price} {stock != 0 && "-" + stock}
+        </li>
       ))}
     </ul>
-    <a href="https://mms-it.com">See More</a>
+
+    {/* {fruits.map((fruit) => (
+      <li key={fruit}>{fruit}</li>
+    ))} */}
+
+    {/* {[1, 2, 3, 4, 5].map((num) => (
+      <h1 key={num}>&hearts;</h1>
+    ))} */}
+
+    {/* <div>{hearts}</div> */}
   </>
 );
 
@@ -70,7 +94,7 @@ const heading = (
 
 // createElement("ul", null, ['a', 'b', 'c']);
 
-reactRoot.render(heading); // react node => dom node
+reactRoot.render(<App />); // react node => dom node
 
 // DOM Node
 // const heading = document.createElement("h1");
