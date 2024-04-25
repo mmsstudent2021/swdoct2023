@@ -1,8 +1,10 @@
 import React from "react";
 
-const SubHeading = ({ children }) => {
+const SubHeading = ({ children, className }) => {
   return (
-    <h3 className=" text-xl font-sans text-gray-500">{children}</h3>
+    <h3 className={` text-xl font-sans text-gray-500 ${className}`}>
+      {children}
+    </h3>
   );
 };
 

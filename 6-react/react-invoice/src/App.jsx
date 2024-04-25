@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import CheckOutForm from "./components/CheckOutForm";
 import CheckOutItemList from "./components/CheckOutItemList";
 import Drawer from "./components/Drawer";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [products, setProduct] = useState([
@@ -43,7 +44,34 @@ const App = () => {
     },
   ]);
 
+  const [items, setItems] = useState([]);
+
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+  const addProduct = (newProduct) => {
+    setProduct([...products, newProduct]);
+  };
+
+  const addItem = (newItem) => {
+    setItems([...items, newItem]);
+  };
+
+  const removeItem = (id) => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
+  const updateItemQuantity = (id, amount) => {
+    setItems(
+      items.map((item) => {
+        if (item.id === id) {
+          const quantity = item.quantity + amount;
+          const cost = (quantity * item.product.price).toFixed(2);
+          return { ...item, quantity, cost };
+        }
+        return item;
+      })
+    );
+  };
 
   const handleDrawer = () => {
     setDrawerOpen(!isDrawerOpen);
@@ -53,13 +81,17 @@ const App = () => {
     <main className=" flex flex-col min-h-screen">
       <Header>
         <Container>
-          <MainHeading>Invoice App</MainHeading>
-          <SubHeading>MMS Solutions</SubHeading>
+          <MainHeading className=" mt-5">Invoice App</MainHeading>
+          <SubHeading className=" mb-5">MMS Solutions</SubHeading>
         </Container>
       </Header>
       <Container>
-        <CheckOutForm products={products} />
-        <CheckOutItemList />
+        <CheckOutForm addItem={addItem} products={products} />
+        <CheckOutItemList
+          updateItemQuantity={updateItemQuantity}
+          removeItem={removeItem}
+          items={items}
+        />
       </Container>
       <Footer>
         <Container>
@@ -72,10 +104,12 @@ const App = () => {
         </Container>
       </Footer>
       <Drawer
+      addProduct={addProduct}
         products={products}
         isDrawerOpen={isDrawerOpen}
         handleDrawer={handleDrawer}
       />
+      <Toaster position="bottom-left" reverseOrder={false} />
     </main>
   );
 };
