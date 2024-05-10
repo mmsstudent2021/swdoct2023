@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Table } from "flowbite-react";
 import { HiMiniPlus } from "react-icons/hi2";
 import { HiMiniMinus } from "react-icons/hi2";
 import List from "./List";
+import { GeneralContext } from "../context/GeneralProvider";
+import { ItemContext } from "../context/ItemProvider";
 
-const CheckOutItemList = ({ items, removeItem, updateItemQuantity }) => {
+const CheckOutItemList = () => {
+  const { items, addItem } = useContext(ItemContext);
+
   const total = items.reduce((pv, cv) => pv + parseFloat(cv.cost), 0);
   return (
     <div className="overflow-x-auto">
@@ -20,12 +24,7 @@ const CheckOutItemList = ({ items, removeItem, updateItemQuantity }) => {
         </Table.Head>
         <Table.Body className="divide-y">
           {items.map((item) => (
-            <List
-              updateItemQuantity={updateItemQuantity}
-              removeItem={removeItem}
-              key={item.id}
-              item={item}
-            />
+            <List key={item.id} item={item} />
           ))}
 
           {items.length === 0 && (

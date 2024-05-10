@@ -1,6 +1,6 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
-const ProductContext = createContext();
+export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [products, setProduct] = useState([
@@ -36,7 +36,14 @@ const ProductProvider = ({ children }) => {
     },
   ]);
 
-  return <ProductContext.Provider>{children}</ProductContext.Provider>;
+  const addProduct = (newProduct) => {
+    setProduct([...products, newProduct]);
+  };
+  return (
+    <ProductContext.Provider value={{ products, addProduct }}>
+      {children}
+    </ProductContext.Provider>
+  );
 };
 
 export default ProductProvider;

@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Table, Button } from "flowbite-react";
 import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
+import { GeneralContext } from "../context/GeneralProvider";
 
-const List = ({ item, removeItem, updateItemQuantity }) => {
+const List = ({ item }) => {
+  const { removeItem, updateItemQuantity } = useContext(GeneralContext);
+
   const handleDelButton = () => {
     // if (confirm("Are you Sure to Delete ?")) {
     //   removeItem(item.id);
     // }
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-            removeItem(item.id);
-        }
-      });
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeItem(item.id);
+      }
+    });
   };
 
   const handleQuantityAdd = () => {
@@ -33,7 +36,7 @@ const List = ({ item, removeItem, updateItemQuantity }) => {
     } else {
       toast.error("Quantity must grater than 1", {
         duration: 1000,
-        position: 'bottom-left',
+        position: "bottom-left",
       });
     }
   };
@@ -52,8 +55,6 @@ const List = ({ item, removeItem, updateItemQuantity }) => {
           <Button onClick={handleQuantityAdd} color="gray" size="xs">
             {/* <HiMiniPlus /> */} +
           </Button>
-
-          
         </div>
       </Table.Cell>
       <Table.Cell className=" text-end">$ {item.cost}</Table.Cell>

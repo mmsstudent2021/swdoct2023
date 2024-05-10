@@ -1,8 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Container from "./Container";
 import { Button, Label, Select, TextInput } from "flowbite-react";
+import { GeneralContext } from "../context/GeneralProvider";
+import { ProductContext } from "../context/ProductProvider";
+import { ItemContext } from "../context/ItemProvider";
 
-const CheckOutForm = ({ products, addItem }) => {
+const CheckOutForm = () => {
+  const { products } = useContext(ProductContext);
+  const { items, addItem } = useContext(ItemContext);
+
   const selectRef = useRef();
   const quantityRef = useRef();
 
@@ -62,7 +68,13 @@ const CheckOutForm = ({ products, addItem }) => {
             <div className="mb-2 block">
               <Label htmlFor="base" value="Input Quantity" />
             </div>
-            <TextInput required ref={quantityRef} id="base" type="number" sizing="md" />
+            <TextInput
+              required
+              ref={quantityRef}
+              id="base"
+              type="number"
+              sizing="md"
+            />
           </div>
 
           <div className=" col-span-1">
