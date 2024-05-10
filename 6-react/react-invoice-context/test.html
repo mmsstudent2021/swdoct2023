@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const items = [
+        {
+          id: 1,
+          quantity: 1,
+        },
+        {
+          id: 2,
+          quantity: 2,
+        },
+        {
+          id: 3,
+          quantity: 3,
+        },
+      ];
+
+      const result = items.map((item) => {
+        if (item.id === 2) {
+          return { ...item, quantity: 5 };
+        }
+        return item;
+      });
+      console.table(result);
+
+      //   console.log((item[1].quantity = 5));
+
+      console.table(items);
+    </script>
+  </body>
+</html>
