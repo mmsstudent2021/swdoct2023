@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
+import useCountStore from "../stores/CountStore";
 
 const Sub = () => {
-  return <button >Sub</button>;
+  const { decrement } = useCountStore();
+  return <button onClick={decrement}>Sub</button>;
 };
 
 export default Sub;

@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
+import useCountStore from "../stores/CountStore";
 
 const Counter = () => {
-  return <h1>0</h1>;
+  const { count } = useCountStore();
+
+  return <h1>{count}</h1>;
 };
 
 export default Counter;

@@ -4,13 +4,11 @@ import Sub from "./components/Sub";
 import Add from "./components/Add";
 
 const App = () => {
-
-
   return (
     <>
-      <Counter  />
+      <Counter />
       <Sub />
-      <Add  />
+      <Add />
     </>
   );
 };
